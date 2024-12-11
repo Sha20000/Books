@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css" />
+    <title>Books Reviews</title>
+</head>
+<body>
+   
+    <div class="box" id="heading">
+        <h1>Shanuka's read Books</h1>
+
+        <p>I here introduced you I read books and their reviews and according to my personal preference I gave them a mark.</p>
+
+    </div>
+
+
+    <div class="box" id="container">
+
+    
+        <% for(let item of listItems) {%>
+
+
+            <div class="item">
+
+                <div class="image-contaner">
+                <img src="https://covers.openlibrary.org/b/isbn/<%=item.isbn%>-L.jpg" alt="Book Cover">
+                </div>
+
+               <div class="information">
+             <form action="/edit" method="post">
+                <h2 id="title<%=item.id %>"><b><strong><ul>
+                    <%= item.title %></b></strong></ul>
+                    
+                <input type="hidden"name="updatedItemId" value="<%= item.id %>">
+                <input id="inputTitle<%=item.id%>" type="text" name="updatedItemTitle" value="<%=item.title%>" autocomplete="off"
+                 autofocus="true" hidden="true" />
+                 <button id="donetitle<%=item.id%>" class="edit" type="submit" hidden><img class="tick"
+                    src="/assets/icons/tick.svg" alt="tick image"></button>
+                
+                <button id="edittitle<%=item.id%>" class="edit" onclick="handler('<%=item.id%>','title',event)"> <img src="/assets/icons/pen.svg" id="pen" ></button>
+                  
+                   
+                  </h2>
+                  
+                  <!-- Book Date -->
+                
+                  <p id="date<%=item.id%>">
+                    <strong>Date:</strong> <%= new Date(item.date).toLocaleDateString('en-GB') %>
+                    <input type="hidden" >
+                    <input id="inputDate<%=item.id%>" type="text" name="updatedItemDate" value="<%=new Date(item.date).toISOString().split('T')[0]%>" autocomplete="off"
+                    autofocus="true" hidden="true" class="date"  />
+                    <button id="donedate<%=item.id%>" class="edit" type="submit" hidden><img class="tick"
+                        src="/assets/icons/tick.svg" alt="tick image"></button>
+                 
+                    
+                   <button id="editdate<%=item.id%>" class="edit" onclick="handler('<%=item.id%>','date')"> <img src="/assets/icons/pen.svg" id="pen" ></button>
+                  
+
+                  </p>
+                  
+                  <!-- Book Reviews -->
+                
+                  <p id="review<%=item.id  %>">
+                    <strong>Reviews:</strong> <%= item.reviews %> / 10
+
+                    <input type="hidden">
+                    <input id="inputReview<%=item.id%>" type="text" name="updatedItemReview" value="<%= item.reviews %>" autocomplete="off"
+                    autofocus="true" hidden="true"  />
+                    <button id="donereview<%=item.id%>" class="edit" type="submit" hidden><img class="tick"
+                        src="/assets/icons/tick.svg" alt="tick image"></button>
+               
+                <button id="editreview<%=item.id%>" class="edit" onclick="handler('<%=item.id%>')"> <img src="/assets/icons/pen.svg" id="pen" ></button>
+                  
+                  </p>
+                  
+                  <!-- Book Description -->
+               
+                  <p id="description <%= item.id %>">
+                    <strong>Description:</strong> <%= item.description %>
+
+                <input type="hidden">
+                <input id="inputDescription<%=item.id%>" type="text" name="updatedItemDescription" value="<%=item.description %>" autocomplete="off"
+                autofocus="true" hidden="true" class="description" />
+                <button id="donedescription<%=item.id%>" class="edit" type="submit" hidden><img class="tick"
+                    src="/assets/icons/tick.svg" alt="tick image"></button>
+                
+                <button id="editdescription<%=item.id%>" class="edit" onclick="handler('<%=item.id%>')"> <img src="/assets/icons/pen.svg" id="pen" ></button>
+                  
+                  </p>
+                </form>
+         
+                <div class="icon">
+                 
+                 <form action="/delete" method="post">
+                 <input type="hidden" name="id" value="<%= item.id %>">
+                 <button id="edit<%=item.id%>" class="edit"><img src="/assets/icons/delete.svg" id="delete" value="<%= item.id %>"></button>
+
+                 </form> 
+                </div>
+
+
+                </div>
+                
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            <% } %>
+    
+    
+
+
+        <form class="button" action="/add" method="post">
+
+
+            <button class="add" name="add" value="new">+</button>
+
+           
+
+    
+
+
+
+    </div>
+
+</body>
+</html>
+
+<script>
+ 
+ function handler(id) {
+
+    event.preventDefault();
+   
+    // Hide the original text element
+    document.getElementById("inputTitle"+id).setAttribute("hidden", true);
+
+    // Show the corresponding input field
+    document.getElementById("inputTitle"+id).removeAttribute("hidden");
+
+    document.getElementById("inputDate"+id).setAttribute("hidden",true);
+    document.getElementById("inputDate"+id).removeAttribute("hidden");
+
+    document.getElementById("inputReview"+id).setAttribute("hidden",true);
+    document.getElementById("inputReview"+id).removeAttribute("hidden");
+
+    document.getElementById("inputDescription"+id).setAttribute("hidden",true);
+    document.getElementById("inputDescription"+id).removeAttribute("hidden");
+
+    document.getElementById("donereview" + id).removeAttribute("hidden");
+    document.getElementById("donedate" + id).removeAttribute("hidden");
+    document.getElementById("donetitle" + id).removeAttribute("hidden");
+    document.getElementById("donedescription" + id).removeAttribute("hidden");
+    
+
+
+}
+
+
+
+
+
+
+  </script>

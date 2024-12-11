@@ -1,0 +1,132 @@
+body{
+    background-color: black;
+  
+}
+h1{
+    color: aliceblue;
+    text-align: center;
+
+
+}
+
+#container{
+    position: relative;
+}
+
+
+
+
+.item {
+    display: flex; /* Enables image and text to appear side by side */
+    align-items: flex-start; /* Align image and text to the top */
+    background-color: #333;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    
+   
+    
+     /* Optional: Add a background to each item */
+}
+
+h2{
+    color: greenyellow;
+    text-decoration: underline; /* Add underline */
+    text-align: left;
+    display: flex;
+    
+    
+    
+    
+}
+#pen{
+    margin-left: 5%;
+}
+.edit{
+    margin-left: 5%;
+}
+
+p{
+    color:white;
+    margin-left: 6%;
+    font-size: x-large;
+    
+}
+
+.add {
+    background-color: #ff5733; /* Bright orange background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 20px; /* Increase font size */
+    padding: 10px 20px; /* Add padding for a better look */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add a shadow */
+    transition: transform 0.2s, background-color 0.3s; /* Smooth hover effects */
+
+  }
+  
+  .add:hover {
+    background-color: #ff784e; /* Slightly lighter orange on hover */
+    transform: scale(1.1); /* Enlarge button slightly on hover */
+  }
+  
+  .add:active {
+    background-color: #d9534f; /* Darker shade when clicked */
+    transform: scale(0.95); /* Shrink slightly when clicked */
+  }
+  
+  .image-container{
+    display: inline-block;
+    max-width: 150px; /* Adjust image size as necessary */
+    margin-right: 20px;
+   
+  }
+  .information{
+   
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+   
+  
+  }
+
+  .icon{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-evenly;
+    
+  }
+ 
+
+#pen {
+    width: 50px; /* Make icons smaller */
+    height: 50px; /* Ensure uniform size */
+    margin-left: 10px; /* Add space between icon and text */
+    cursor: pointer; /* Indicate clickable icons */
+   
+}
+#delete{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.tick{
+    height: 20px;
+}
+
+.title{
+    height: 40px;
+    width: 60px;
+}
+
+.description{
+    height: 200px;
+    width: 500px;
+}
+.date{
+    width: 100px;
+}
+  
